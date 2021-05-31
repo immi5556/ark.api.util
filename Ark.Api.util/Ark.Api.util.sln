@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ark.Test.Web", "Ark.Test.Web\Ark.Test.Web.csproj", "{E1749B42-7D16-46D7-8BD5-8288A597F0D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ark.net.util", "ark.api.util\ark.net.util.csproj", "{8EB64472-EF28-4495-B673-37B8FC4CF3B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9831F2B0-2519-4011-9621-C78562B43944}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1749B42-7D16-46D7-8BD5-8288A597F0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1749B42-7D16-46D7-8BD5-8288A597F0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1749B42-7D16-46D7-8BD5-8288A597F0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1749B42-7D16-46D7-8BD5-8288A597F0D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EB64472-EF28-4495-B673-37B8FC4CF3B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB64472-EF28-4495-B673-37B8FC4CF3B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB64472-EF28-4495-B673-37B8FC4CF3B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB64472-EF28-4495-B673-37B8FC4CF3B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {828D9CC7-70AC-4AFA-89D7-7E3ED2827B0D}
+	EndGlobalSection
+EndGlobal
