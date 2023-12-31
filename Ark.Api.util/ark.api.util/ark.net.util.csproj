@@ -1,10 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <OutputType>Library</OutputType>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <IsPackable>true</IsPackable>
-  </PropertyGroup>
-  
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Version>0.0.1</Version>
+		<Description>Immanuel's utility is now public</Description>
+		<OutputType>Library</OutputType>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IsPackable>true</IsPackable>
+		<Title>Immanuel's c# utilities</Title>
+		<PackageTags>ark-c#-utility; ark-c#-helper;</PackageTags>
+		<PackageReleaseNotes>Helper lib</PackageReleaseNotes>
+		<RepositoryUrl>https://github.com/immi5556/ark.api.util</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryBranch>main</RepositoryBranch>
+	</PropertyGroup>
+
 </Project>
