@@ -30,5 +30,9 @@ namespace ark.net.util
                 return CreateFileSequence(fullfilepath, ++seq);
             }
         }
+        public static string AppendToFileName(string fullfilepath, string toappend, string extn = null)
+        {
+            return Path.Combine(Path.GetDirectoryName(fullfilepath), Path.GetFileNameWithoutExtension(fullfilepath) + "_" + toappend + (extn ?? Path.GetExtension(fullfilepath)));
+        }
     }
 }
