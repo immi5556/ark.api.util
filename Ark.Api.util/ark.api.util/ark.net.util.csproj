@@ -3,16 +3,26 @@
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<Version>0.0.1</Version>
-		<Description>Immanuel's utility is now public</Description>
+		<Description>
+			Immanuel's c# utilities
+			- upload library 
+			- date utility
+			- serialize helper
+		</Description>
 		<OutputType>Library</OutputType>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<IsPackable>true</IsPackable>
-		<Title>Immanuel's c# utilities</Title>
+		<Title>Immanuel's c# utility lib is now public :)</Title>
 		<PackageTags>ark-c#-utility; ark-c#-helper;</PackageTags>
 		<PackageReleaseNotes>Helper lib</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/immi5556/ark.api.util</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryBranch>main</RepositoryBranch>
+		<PackageIcon>ark_logo.png</PackageIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="Icon\ark_logo.png" Pack="true" PackagePath="" />
+	</ItemGroup>
 
 </Project>
