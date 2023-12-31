@@ -27,6 +27,7 @@ namespace ark.net.util
             }
             else
             {
+                seq = seq.HasValue ? seq.Value : 0;
                 return CreateFileSequence(fullfilepath, ++seq);
             }
         }
