@@ -35,5 +35,16 @@ namespace ark.net.util
         {
             return Path.Combine(Path.GetDirectoryName(fullfilepath), Path.GetFileNameWithoutExtension(fullfilepath) + "_" + toappend + (extn ?? Path.GetExtension(fullfilepath)));
         }
+        public static string RemoveInvalidCharsFromFilename(string file_name)
+        {
+            string finalString = string.Empty;
+            if (!string.IsNullOrEmpty(file_name))
+            {
+                return string.Concat(file_name.Split(Path.GetInvalidFileNameChars()));
+            }
+            return finalString;
+        }
+        //return  Path.InvalidPathChars .Combine(Path.GetDirectoryName(fullfilepath), Path.GetFileNameWithoutExtension(fullfilepath) + "_" + toappend + (extn ?? Path.GetExtension(fullfilepath)));
+
     }
 }
