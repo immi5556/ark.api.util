@@ -7,8 +7,11 @@ namespace ark.net.util
 {
     public class DateUtil
     {
+        public static Func<string> CurrentYearStamp = () => $"{DateTime.Now.Year}";
+        public static Func<string> CurrentMonthStamp = () => $"{DateTime.Now.Year}_{DateTime.Now.Month.ToString().PadLeft(2, '0')}";
         public static Func<string> CurrentDateStamp = () => $"{DateTime.Now.Year}_{DateTime.Now.Month.ToString().PadLeft(2, '0')}_{DateTime.Now.Day.ToString().PadLeft(2, '0')}";
-        public static Func<string> CurrentTimeStamp = () => $"{DateTime.Now.Hour.ToString().PadLeft(2, '0')}_{DateTime.Now.Minute.ToString().PadLeft(2, '0')}_{DateTime.Now.Second.ToString().PadLeft(2, '0')}";
-        public static Func<string> CurrentTimeMsStamp = () => $"{DateTime.Now.Hour.ToString().PadLeft(2, '0')}_{DateTime.Now.Minute.ToString().PadLeft(2, '0')}_{DateTime.Now.Second.ToString().PadLeft(2, '0')}_{DateTime.Now.Millisecond.ToString().PadLeft(2, '0')}";
+        public static Func<string> CurrentTimeOnlyStamp = () => $"{DateTime.Now.Hour.ToString().PadLeft(2, '0')}_{DateTime.Now.Minute.ToString().PadLeft(2, '0')}_{DateTime.Now.Second.ToString().PadLeft(2, '0')}";
+        public static Func<string> CurrentTimeOnlyMsStamp = () => $"{DateTime.Now.Hour.ToString().PadLeft(2, '0')}_{DateTime.Now.Minute.ToString().PadLeft(2, '0')}_{DateTime.Now.Second.ToString().PadLeft(2, '0')}_{DateTime.Now.Millisecond.ToString().PadLeft(6, '0')}"; //millsecond stamp with 6 digits
+        public static Func<string> CurrentTimeStamp = () => $"{CurrentDateStamp()}_{CurrentTimeOnlyMsStamp()}";
     }
 }
