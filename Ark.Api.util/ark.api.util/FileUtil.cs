@@ -5,11 +5,20 @@ namespace ark.net.util
 {
     public class FileUtil
     {
-        public static void Save(string path, string content)
+        /// <summary>
+        /// Wrapper fro saving file, with additional features
+        /// 1. creates directory if not exist
+        /// 2. appends number sequence to file rather overwrting (ex: filename_1, _2 etc)
+        /// </summary>
+        /// <param name="path">path to be written</param>
+        /// <param name="content">file content</param>
+        /// <returns>returns the file path, new if seqience generated otherwise the same as input</returns>
+        public static string Save(string path, string content)
         {
             CreateIfNotExistDirectory(System.IO.Path.GetDirectoryName(path));
             var fil = CreateFileSequence(path);
             System.IO.File.WriteAllText(fil, content);
+            return fil.ToString();
         }
         public static string CreateIfNotExistDirectory(string dirpath)
         {
