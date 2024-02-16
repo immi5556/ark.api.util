@@ -7,11 +7,12 @@ namespace ark.net.util
 {
     public class EmailUtil
     {
-        string _email; string _pw; string _display; string _subject; string _smtp;int _port;
-        public EmailUtil(string email, string pw, string display, string subject, string smtp, int port)
+        string _email; string _pw; string _from; string _display; string _subject; string _smtp;int _port;
+        public EmailUtil(string email, string pw, string from, string display, string subject, string smtp, int port)
         {
             _email = email;
             _pw = pw;
+            _from = from;
             _display = display;
             _subject = subject;
             _smtp = smtp;
@@ -25,7 +26,7 @@ namespace ark.net.util
         {
             var email = new MimeMessage();
             email.Sender = MailboxAddress.Parse(_email);
-            email.From.Add(new MailboxAddress(_display, _email));
+            email.From.Add(new MailboxAddress(_display, _from));
             (to ?? new string[] { }).ToList().ForEach(t =>
             {
                 email.To.Add(MailboxAddress.Parse(t));
@@ -47,8 +48,8 @@ namespace ark.net.util
             smtp.Authenticate(_email, _pw);
             smtp.Send(email);
             smtp.Disconnect(true);
-            //EmailUtil u = new EmailUtil("sticky.notes@immanuel.co", "<pw>", "Sticky-Notes (ARK)", "Stick Notes: OTP", "mail.immanuel.co", 2525)
+            //EmailUtil u = new EmailUtil("sticky.notes@immanuel.co", "<pw>", "sticky.notes.alias@immanuel.co", "Sticky-Notes (ARK)", "Stick Notes: OTP", "mail.immanuel.co", 2525)
         }
-        
+
     }
 }
