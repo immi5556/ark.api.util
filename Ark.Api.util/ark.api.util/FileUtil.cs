@@ -20,6 +20,13 @@ namespace ark.net.util
             System.IO.File.WriteAllText(fil, content);
             return fil.ToString();
         }
+        public static string Save(string path, byte[] content)
+        {
+            CreateIfNotExistDirectory(System.IO.Path.GetDirectoryName(path));
+            var fil = CreateFileSequence(path);
+            System.IO.File.WriteAllBytes(fil, content);
+            return fil.ToString();
+        }
         public static string CreateIfNotExistDirectory(string dirpath)
         {
             if (!Directory.Exists(dirpath))
