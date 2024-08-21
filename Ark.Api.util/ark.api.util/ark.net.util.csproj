@@ -2,15 +2,10 @@
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
-		<Version>0.1.4</Version>
+		<Version>0.1.5</Version>
 		<Description>
 			Immanuel's c# utilities
-			- upload library 
-			- date utility
-			- serialize helper
-			- file naming helper
-			- file seq fix
-			- http util
+			- include epoch datetime
 		</Description>
 		<OutputType>Library</OutputType>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
