@@ -15,5 +15,13 @@ namespace ark.net.util
         public static Func<string> CurrentTimeStamp = () => $"{CurrentDateStamp()}_{CurrentTimeOnlyMsStamp()}";
         public static Func<double> CurrentEpochTime = () =>  (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
         public static Func<double?, DateTime?> EpochToDateTime = (epoch) => epoch.HasValue ? new DateTime(1970, 1, 1).AddSeconds(epoch.Value) : null;
+        //TimeZoneInfo.GetSystemTimeZones(); ex: "India Standard Time", "US Mountain Standard Time", "Central Standard Time" etc
+        public static Func<double?, string, DateTime?> EpochToZoneDateTime = (epoch, tz) =>
+        {
+            if (!epoch.HasValue) return null;
+            DateTime utc = new DateTime(1970, 1, 1).AddSeconds(epoch.Value);
+            return new DateTimeOffset(utc, TimeZoneInfo.FindSystemTimeZoneById(tz).GetUtcOffset(utc)).DateTime;
+        };
+        public static Func<double?, DateTime?> EpochToIndiaDateTime = (epoch) => EpochToZoneDateTime(epoch, "India Standard Time");
     }
 }
