@@ -20,7 +20,7 @@ namespace ark.net.util
         {
             if (!epoch.HasValue) return null;
             DateTime utc = new DateTime(1970, 1, 1).AddSeconds(epoch.Value);
-            return new DateTimeOffset(utc, TimeZoneInfo.FindSystemTimeZoneById(tz).GetUtcOffset(utc)).DateTime;
+            return TimeZoneInfo.ConvertTimeFromUtc(utc, TimeZoneInfo.FindSystemTimeZoneById(tz));
         };
         public static Func<double?, DateTime?> EpochToIndiaDateTime = (epoch) => EpochToZoneDateTime(epoch, "India Standard Time");
     }
