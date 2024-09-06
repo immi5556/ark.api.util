@@ -62,7 +62,7 @@ namespace ark.net.util
             return finalString;
         }
         //return  Path.InvalidPathChars .Combine(Path.GetDirectoryName(fullfilepath), Path.GetFileNameWithoutExtension(fullfilepath) + "_" + toappend + (extn ?? Path.GetExtension(fullfilepath)));
-        static readonly Regex removeInvalidChars = new Regex($"[{Regex.Escape(new string(Path.GetInvalidFileNameChars()))}]",
+        static readonly Regex removeInvalidChars = new Regex($"[{Regex.Escape(new string(Path.GetInvalidFileNameChars())) + ".@"}]",
             RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.CultureInvariant);
         public static string SanitizeFileName(string filename)
         {
