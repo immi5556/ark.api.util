@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ark.net.util
 {
@@ -12,6 +13,18 @@ namespace ark.net.util
         public static int Random(int min, int max)
         {
             return r.Next(min, max);
+        }
+        static Random random = new Random();
+        public static string RandomString(int length, bool only_alphabets = false)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            const string alph_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            if (!only_alphabets)
+                return new string(Enumerable.Repeat(chars, length)
+                    .Select(s => s[random.Next(s.Length)]).ToArray());
+
+            return new string(Enumerable.Repeat(alph_chars, length)
+                    .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }

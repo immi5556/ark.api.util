@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using CsvHelper;
+using System.Formats.Asn1;
+using System.Globalization;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
@@ -68,6 +71,16 @@ namespace ark.net.util
         {
             if (string.IsNullOrEmpty(filename)) return filename;
             return removeInvalidChars.Replace(filename, "_");
+        }
+        public static byte[] ExportToCsv(dynamic records)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            using (var writer = new StreamWriter(ms))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(records);
+                return ms.ToArray();
+            }
         }
     }
 }
