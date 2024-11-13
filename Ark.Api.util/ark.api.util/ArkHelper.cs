@@ -26,5 +26,14 @@ namespace ark.net.util
             return new string(Enumerable.Repeat(alph_chars, length)
                     .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+        public static DateTime GetRandomDate(int minYear = 1900, int maxYear = 2099)
+        {
+            var year = random.Next(minYear, maxYear);
+            var month = random.Next(1, 12);
+            var noOfDaysInMonth = DateTime.DaysInMonth(year, month);
+            var day = random.Next(1, noOfDaysInMonth);
+
+            return new DateTime(year, month, day);
+        }
     }
 }
