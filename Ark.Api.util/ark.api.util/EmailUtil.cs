@@ -34,7 +34,7 @@ namespace ark.net.util
         {
             var email = new MimeMessage();
             email.Sender = MailboxAddress.Parse(_email);
-            email.From.Add(new MailboxAddress(_display, _from));
+            email.From.Add(new MailboxAddress(display, _from));
             (to ?? new string[] { }).ToList().ForEach(t =>
             {
                 email.To.Add(MailboxAddress.Parse(t));
@@ -47,7 +47,7 @@ namespace ark.net.util
             {
                 email.Bcc.Add(MailboxAddress.Parse(t));
             });
-            email.Subject = _subject;
+            email.Subject = subject;
             var builder = new BodyBuilder();
             builder.HtmlBody = htmlString;
             email.Body = builder.ToMessageBody();

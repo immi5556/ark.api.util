@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
-		<Version>1.0.4.4</Version>
+		<Version>1.0.4.5</Version>
 		<Description>
 			Immanuel's c# utilities
 			- enable csv support
