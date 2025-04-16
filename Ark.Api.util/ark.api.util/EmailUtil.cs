@@ -20,9 +20,17 @@ namespace ark.net.util
         }
         public void SendEmail(string to, string htmlString)
         {
-            SendEmail(new string[] { to }, new string[] { }, new string[] { }, htmlString);
+            SendEmail(to, htmlString, _subject, _display);
         }
-        public void SendEmail(string[] to, string[] cc, string[] bcc, string htmlString)
+        public void SendEmail(string to, string htmlString, string subject)
+        {
+            SendEmail(to, htmlString, subject, _display);
+        }
+        public void SendEmail(string to, string htmlString, string subject, string display)
+        {
+            SendEmail(new string[] { to }, new string[] { }, new string[] { }, htmlString, subject, display);
+        }
+        public void SendEmail(string[] to, string[] cc, string[] bcc, string htmlString, string subject, string display)
         {
             var email = new MimeMessage();
             email.Sender = MailboxAddress.Parse(_email);
