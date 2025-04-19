@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.FileSystemGlobbing.Internal;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -30,6 +32,13 @@ namespace ark.net.util
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<Tout>();
             
+        }
+        public static async Task<string> PostForm(string url, Dictionary<string, string> to_post)
+        {
+            using HttpResponseMessage response = await client.PostAsync(url, new FormUrlEncodedContent(to_post));           
+            var resp = await response.Content.ReadAsStringAsync();
+            response.EnsureSuccessStatusCode();
+            return resp;
         }
     }
 }

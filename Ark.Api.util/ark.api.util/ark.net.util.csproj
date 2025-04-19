@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
-		<Version>1.0.4.6</Version>
+		<TargetFramework>net8.0</TargetFramework>
+		<Version>1.0.4.7</Version>
 		<Description>
 			Immanuel's c# utilities
-			- enable csv support
+			- enhance http utils
 		</Description>
 		<OutputType>Library</OutputType>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>

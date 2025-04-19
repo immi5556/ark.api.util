@@ -28,6 +28,11 @@ namespace Ark.Test.Web.Controllers
             return View();
         }
 
+        public async Task<dynamic> TestHttpPostForm()
+        {
+            return await ark.net.util.HttpUtil.PostForm("https://reqbin.com/echo/post/form", new Dictionary<string, string>() { { "k1", "v1" } });
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
