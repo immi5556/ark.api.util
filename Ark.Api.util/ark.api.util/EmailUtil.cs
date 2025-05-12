@@ -41,11 +41,11 @@ namespace ark.net.util
             });
             (cc ?? new string[] { }).ToList().ForEach(t =>
             {
-                email.Cc.Add(MailboxAddress.Parse(t));
+                try { var tt = MailboxAddress.Parse(t); email.Cc.Add(tt); } catch { }
             });
             (bcc ?? new string[] { }).ToList().ForEach(t =>
             {
-                email.Bcc.Add(MailboxAddress.Parse(t));
+                try { var tt = MailboxAddress.Parse(t); email.Bcc.Add(tt); } catch { }
             });
             email.Subject = subject;
             var builder = new BodyBuilder();
