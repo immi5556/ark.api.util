@@ -35,15 +35,15 @@ namespace ark.net.util
             var email = new MimeMessage();
             email.Sender = MailboxAddress.Parse(_email);
             email.From.Add(new MailboxAddress(display, _from));
-            (to ?? new string[] { }).ToList().ForEach(t =>
+            (to ?? new string[] { }).Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Trim()).ToList().ForEach(t =>
             {
                 email.To.Add(MailboxAddress.Parse(t));
             });
-            (cc ?? new string[] { }).ToList().ForEach(t =>
+            (cc ?? new string[] { }).Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Trim()).ToList().ForEach(t =>
             {
                 try { var tt = MailboxAddress.Parse(t); email.Cc.Add(tt); } catch { }
             });
-            (bcc ?? new string[] { }).ToList().ForEach(t =>
+            (bcc ?? new string[] { }).Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Trim()).ToList().ForEach(t =>
             {
                 try { var tt = MailboxAddress.Parse(t); email.Bcc.Add(tt); } catch { }
             });
