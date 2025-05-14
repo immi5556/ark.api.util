@@ -7,7 +7,7 @@ namespace ark.net.util
 {
     public class EmailUtil
     {
-        string _email; string _pw; string _from; string _display; string _subject; string _smtp;int _port;
+        string _email; string _pw; string _from; string _display; string _subject; string _smtp; int _port;
         public EmailUtil(string email, string pw, string from, string display, string subject, string smtp, int port)
         {
             _email = email;
@@ -58,6 +58,22 @@ namespace ark.net.util
             smtp.Disconnect(true);
             //EmailUtil u = new EmailUtil("sticky.notes@immanuel.co", "<pw>", "sticky.notes.alias@immanuel.co", "Sticky-Notes (ARK)", "Stick Notes: OTP", "mail.immanuel.co", 2525)
         }
-
+        /// <summary>
+        /// Simple Method validates the email format
+        /// </summary>
+        /// <param name="email">ex: raj@immanuel.co, invalid_email </param>
+        /// <returns>returns true/false</returns>
+        public static bool IsValidFormat(string email)
+        {
+            try
+            {
+                var tt = new System.Net.Mail.MailAddress(email);
+                return tt.Address == email;
+            }
+            catch (System.Exception exx)
+            {
+                return false;
+            }
+        }
     }
 }

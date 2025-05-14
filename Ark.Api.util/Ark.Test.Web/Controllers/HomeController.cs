@@ -20,6 +20,11 @@ namespace Ark.Test.Web.Controllers
 
         public IActionResult Index()
         {
+            var r1 = ark.net.util.EmailUtil.IsValidFormat("ewewe");
+            var r2 = ark.net.util.EmailUtil.IsValidFormat("ewewe@www.cc");
+            var r3 = ark.net.util.EmailUtil.IsValidFormat("raj@immanuel.co");
+            var r4 = ark.net.util.EmailUtil.IsValidFormat("www@jjjj.kk  ");
+            var r5 = ark.net.util.EmailUtil.IsValidFormat("  ww  w@jj  jj.kk  ");
             return View();
         }
 

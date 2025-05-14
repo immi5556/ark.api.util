@@ -1,0 +1,7 @@
+
+-- tried this for documentation
+
+	https://www.nuget.org/packages/docfx/
+	> dotnet tool install -g docfx
+	> docfx init -y
+	> docfx build docfx.json --serve
