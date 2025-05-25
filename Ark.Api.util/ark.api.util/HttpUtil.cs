@@ -31,7 +31,26 @@ namespace ark.net.util
             using HttpResponseMessage response = await client.PostAsJsonAsync<Tin>(url, tin);
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<Tout>();
-            
+        }
+        /// <summary>
+        /// Http Post
+        /// </summary>
+        /// <typeparam name="Tin"></typeparam>
+        /// <typeparam name="Tout"></typeparam>
+        /// <param name="url">url</param>
+        /// <param name="token">bearer token</param>
+        /// <param name="tin">input object</param>
+        /// <returns></returns>
+        public static async Task<Tout> Post<Tin, Tout>(string url, string token, Tin tin)
+        {
+            if (!string.IsNullOrEmpty(token))
+            {
+                if (client.DefaultRequestHeaders.Contains("Authorization")) client.DefaultRequestHeaders.Remove("Authorization");
+                client.DefaultRequestHeaders.Add("Authorization", token);
+            }
+            using HttpResponseMessage response = await client.PostAsJsonAsync<Tin>(url, tin);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Tout>();
         }
         public static async Task<string> PostForm(string url, Dictionary<string, string> to_post)
         {
